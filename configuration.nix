@@ -53,9 +53,6 @@
       DNSOverTLS=yes
     '';
   };
-  # networking.hostName = "nixos"; # Define your hostname
-  # services.resolved.enable = true; 
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -165,6 +162,7 @@
     grim
     hyprland
     imv
+    jq
     killall
     kitty
     libnotify
@@ -186,6 +184,7 @@
     stow
     swww
     v4l-utils
+    vimiv-qt
     waybar
     wayland-protocols
     wayland-utils
