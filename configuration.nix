@@ -32,6 +32,7 @@
     networkmanager.enable = true;
     firewall = {
       enable = true;
+      checkReversePath = false;
       allowedTCPPorts = [ ]; 
     };
     nameservers = [
@@ -175,6 +176,8 @@
     obsidian
     pavucontrol
     pipewire
+    playerctl
+    python311Full
     ripgrep
     rofi-wayland
     scdoc
