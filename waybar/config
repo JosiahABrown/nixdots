@@ -2,7 +2,7 @@
   "layer": "top",
     "modules-left": ["custom/arch", "wlr/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["backlight", "pulseaudio", "bluetooth", "network", "battery"],
+    "modules-right": ["cpu", "memory", "backlight", "pulseaudio", "bluetooth", "network", "battery"],
     "custom/arch": {
       "format": "   ",
       "tooltip": false,
@@ -17,6 +17,11 @@
         "3": "三",
         "4": "四",
         "5": "五",
+        "6": "六", 
+        "7": "七", 
+        "8": "八", 
+        "9": "九", 
+        "10": "十"
         // "active": "",
         // "default": ""
       },
@@ -25,6 +30,15 @@
     },
     "clock": {
       "format": "<span color='#b4befe'> </span>{:%H:%M}",
+      "tooltip": true,
+      "tooltip-format": "{:%Y-%m-%d %a}",
+    },
+    "cpu": {
+      "format": "<span color='#b4befe'> </span>{usage}%",
+    },
+    "memory": {
+      "interval": 30,
+      "format": "<span color='#b4befe'> </span>{used:0.1f}G/{total:0.1f}G"
     },
     "backlight": {
       "device": "intel_backlight",
