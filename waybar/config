@@ -37,7 +37,7 @@
       "format": "<span color='#b4befe'> </span>{usage}%",
     },
     "memory": {
-      "interval": 30,
+      "interval": 1,
       "format": "<span color='#b4befe'> </span>{used:0.1f}G/{total:0.1f}G"
     },
     "backlight": {
