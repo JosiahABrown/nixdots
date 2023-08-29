@@ -153,6 +153,7 @@
     brave
     busybox
     cmake
+    dmidecode
     dunst
     docker
     ffmpeg_6-full
@@ -169,6 +170,7 @@
     libnotify
     meson
     mpv
+    ncdu
     neofetch
     neovim
     networkmanagerapplet
@@ -215,6 +217,12 @@
   #   enableSSHSupport = true;
   # };
 
+  # Automatic Garbage Collection
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
   # List services that you want to enable:
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
