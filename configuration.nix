@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
       /etc/nixos/system/networking.nix
+      /etc/nixos/system/packages.nix
       <home-manager/nixos>
     ];
  
@@ -74,9 +75,6 @@
     packages = with pkgs; [];
   };
   environment.shells = with pkgs; [ zsh ];
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
    
   # Window manager
   programs.hyprland = {
@@ -100,7 +98,7 @@
   };
 
   # Enable sound with pipewire
-  sound.enable = true;
+  # sound.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -111,77 +109,6 @@
 
   # Enable Docker
   virtualisation.docker.enable = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    bat
-    brave
-    busybox
-    cmake
-    dmidecode
-    dunst
-    docker
-    ffmpeg_6-full
-    gcc
-    git
-    go
-    gphoto2
-    grim
-    hyprland
-    imv
-    jq
-    killall
-    kitty
-    libnotify
-    meson
-    mpv
-    ncdu
-    neofetch
-    neovim
-    networkmanagerapplet
-    ninja
-    obsidian
-    pavucontrol
-    pipewire
-    playerctl
-    python311Full
-    ripgrep
-    rofi-wayland
-    scdoc
-    signal-desktop
-    slurp
-    spotify
-    stow
-    swww
-    v4l-utils
-    vimiv-qt
-    waybar
-    wayland-protocols
-    wayland-utils
-    webcord
-    wl-clipboard
-    wlroots
-    xdg-desktop-portal-gtk
-    xdg-desktop-portal-hyprland
-    xdg-utils
-    xwayland
-  ];
-  
-  # Fonts
-  fonts.fonts = with pkgs; [
-    # Nerd fonts
-    nerdfonts
-    meslo-lgs-nf
-  ];
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 
   # Automatic Garbage Collection
   nix.gc = {
@@ -196,22 +123,6 @@
   # Enable touchpad
   services.xserver.libinput.enable = true;
   
-  # List of Programs that you want to enable:
-  # Neovim
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
-  
-  # zsh
-  programs.zsh.enable = true;
-  
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
@@ -220,11 +131,11 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
   
-  nixpkgs.overlays = [
-    (self: super: {
-      waybar = super.waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-        });
-      })
-   ];  
+  # nixpkgs.overlays = [
+  #   (self: super: {
+  #     waybar = super.waybar.overrideAttrs (oldAttrs: {
+  #       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+  #       });
+  #     })
+  #  ];  
 }
