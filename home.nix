@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./modules/zsh.nix
+    ./home/zsh.nix
   ];
 
   # Info about user and path it manages
