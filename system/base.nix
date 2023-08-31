@@ -11,12 +11,37 @@
     variables = {
       EDITOR = "nvim";
     };
-    shells = with pkgs; [
-      zsh
-    ];
     sessionVariables = {
       # Hint Electron apps to use wayland
       NIXOS_OZONE_WL = "1";
+    };
+
+    shells = with pkgs; [ zsh ];
+  };
+
+  # List services that you want to enable:
+  services = {
+    # OpenSSH daemon
+    openssh.enable = true;
+
+    dbus.enable = true;
+
+    # Configure keymap in X11
+    xserver = {
+      layout = "us";
+      xkbVariant = "";
+      enable = true;
+      displayManager.sddm.enable = true;
+      # Enable touchpad
+      libinput.enable = true;
+    };
+
+    # sound
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
     };
   };
  
@@ -36,7 +61,6 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
     LC_IDENTIFICATION = "en_US.UTF-8";
@@ -49,14 +73,6 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-    enable = true;
-    displayManager.sddm.enable = true;
-  };
- 
   # Home manager
   home-manager = {
     useGlobalPkgs = true;
@@ -64,7 +80,6 @@
     users.josiah = import /etc/nixos/home.nix;
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.josiah = {
     isNormalUser = true;
     description = "Josiah";
@@ -84,7 +99,6 @@
     xwayland.enable = true;
   };
   # Helps enable screen sharing
-  services.dbus.enable = true;
   xdg.portal = {
     enable = true;
     wlr.enable = true;
@@ -96,12 +110,6 @@
   # Enable sound with pipewire
   # sound.enable = true;
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
 
   # Enable Docker
   virtualisation.docker.enable = true;
@@ -112,10 +120,4 @@
     dates = "weekly";
     options = "--delete-older-than 7d";
   };
-  # List services that you want to enable:
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
-  # Enable touchpad
-  services.xserver.libinput.enable = true;
 }
