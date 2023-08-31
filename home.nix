@@ -2,7 +2,8 @@
 
 {
   imports = [
-    ./home/zsh.nix
+    /etc/nixos/home/zsh/zsh.nix
+    # /etc/nixos/home/hypr/hyprland.nix
   ];
 
   # Info about user and path it manages
