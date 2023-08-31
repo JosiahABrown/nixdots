@@ -6,9 +6,18 @@
       <home-manager/nixos>
     ];
 
-  # ENV variables
-  environment.variables = {
-    EDITOR = "nvim";
+  # ENV 
+  environment = {
+    variables = {
+      EDITOR = "nvim";
+    };
+    shells = with pkgs; [
+      zsh
+    ];
+    sessionVariables = {
+      # Hint Electron apps to use wayland
+      NIXOS_OZONE_WL = "1";
+    };
   };
  
   # Bootloader.
@@ -67,7 +76,6 @@
     ];
     packages = with pkgs; [];
   };
-  environment.shells = with pkgs; [ zsh ];
    
   # Window manager
   programs.hyprland = {
@@ -75,11 +83,6 @@
     xwayland.hidpi = true;
     xwayland.enable = true;
   };
-  environment.sessionVariables = {
-    # Hint electron apps to use wayland
-    NIXOS_OZONE_WL = "1";
-  };
-
   # Helps enable screen sharing
   services.dbus.enable = true;
   xdg.portal = {
