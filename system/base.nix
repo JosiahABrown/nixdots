@@ -1,11 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ 
-      <home-manager/nixos>
-    ];
-
   # ENV 
   environment = {
     variables = {
@@ -73,13 +68,6 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Home manager
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    users.josiah = import /etc/nixos/home.nix;
-  };
-
   users.users.josiah = {
     isNormalUser = true;
     description = "Josiah";
@@ -120,4 +108,7 @@
     dates = "weekly";
     options = "--delete-older-than 7d";
   };
+
+  # Flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }

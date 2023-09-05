@@ -7,10 +7,10 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix
-      /etc/nixos/system/networking.nix
-      /etc/nixos/system/packages.nix
-      /etc/nixos/system/base.nix
+      ./hardware-configuration.nix
+      ./networking.nix
+      ./packages.nix
+      ./base.nix
     ];
  
   # This value determines the NixOS release from which the default

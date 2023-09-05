@@ -7,7 +7,7 @@
     shellAliases = {
       la = "ls -a";
       lla = "ls -al";
-      update = "sudo nixos-rebuild switch";
+      rebuild = "cd /etc/nixos/ && sudo nixos-rebuild --flake .# switch && cd -";
       nix-config = "cd /etc/nixos && sudo -E nvim configuration.nix";
       v = "nvim";
       _ = "sudo";

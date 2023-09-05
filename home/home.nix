@@ -1,9 +1,7 @@
-{ config, pkgs, ... }:
-
+{ config, pkgs, ... }: 
 {
   imports = [
-    /etc/nixos/home/zsh/zsh.nix
-    # /etc/nixos/home/hypr/hyprland.nix
+    ./zsh/zsh.nix
   ];
 
   # Info about user and path it manages
@@ -22,6 +20,7 @@
   home.packages = with pkgs; [
     htop
     httpie
+    # hyprland
   ];
 
 }
