@@ -10,9 +10,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = { nixpkgs, home-manager, ... }: 
+  outputs = { self, nixpkgs, home-manager, hyprland, ... }@inputs: 
   let 
     system = "x86_64-linux";
 
@@ -27,13 +28,17 @@
     nixosConfigurations = {
       nixos = lib.nixosSystem {
         inherit system;
+        specialArgs = { inherit inputs; };
         modules = [
           ./system/configuration.nix 
+          hyprland.nixosModules.default
+          { programs.hyprland.enable = true; }
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.josiah = import ./home/home.nix;
+            home-manager.extraSpecialArgs = { inherit inputs; };
           }
         ];
       }; 

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
   # ENV 
@@ -83,8 +83,7 @@
   # Window manager
   programs.hyprland = {
     enable = true;
-    xwayland.hidpi = true;
-    xwayland.enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
   # Helps enable screen sharing
   xdg.portal = {

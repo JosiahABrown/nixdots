@@ -2,6 +2,7 @@
 {
   imports = [
     ./zsh/zsh.nix
+    ./hypr/hyprland.nix
   ];
 
   # Info about user and path it manages
