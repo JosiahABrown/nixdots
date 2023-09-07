@@ -11,7 +11,7 @@
     settings = {
       mainBar = {
         layer = "top";
-        modules-left = [ "custom/nix" "hyprland/workspaces" ];
+        modules-left = [ "custom/nix" "hyprland/workspaces" "custom/cava-internal"];
         modules-center = [ "clock" ];
         modules-right = [ "cpu" "memory" "backlight" "pulseaudio" "bluetooth" "network" "battery" ];
 
@@ -35,6 +35,10 @@
             "9" = "九"; 
             "10" = "十";
           };
+        };
+        "custom/cava-internal" = {
+          "exec" = "sleep 1s && cava-internal";
+          "tooltip" = false;
         };
 
         "clock" = {
@@ -117,6 +121,17 @@
         font-size: 20px;
         margin-left: 15px;
         color: #b4befe;
+      }
+
+      #custom-cava-internal {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 1px;
+        font-family: "Hack Nerd Font";
+        color: #b4befe;
+        background-color: #11111b;
+        margin-top: 15px;
+        border-radius: 10px;
       }
 
       #workspaces button.active {

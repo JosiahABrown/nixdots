@@ -2,6 +2,7 @@
 {
   imports = [
     inputs.hyprland.homeManagerModules.default
+    ./scripts
     ./zsh/zsh.nix
     ./hypr/hyprland.nix
     ./waybar
@@ -21,8 +22,10 @@
 
   # User packages
   home.packages = with pkgs; [
+    btop
     htop
     httpie
+    cava
   ];
 
 }
