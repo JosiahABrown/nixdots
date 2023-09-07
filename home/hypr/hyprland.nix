@@ -1,4 +1,4 @@
-{ config, pkgs, ...}:
+{ config, inputs, pkgs, ...}:
 
 {
   wayland.windowManager.hyprland = {
@@ -47,10 +47,12 @@
 
       decoration {
           rounding = 10
-          blur = yes
-          blur_size = 3
-          blur_passes = 1
-          blur_new_optimizations = on
+          blur {
+            enabled = true
+            size = 3 
+            new_optimizations = true
+            passes = 1
+          }
 
           drop_shadow = yes
           shadow_range = 4

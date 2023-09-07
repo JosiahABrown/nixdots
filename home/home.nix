@@ -1,8 +1,10 @@
-{ config, pkgs, ... }: 
+{ inputs, config, pkgs, ... }: 
 {
   imports = [
+    inputs.hyprland.homeManagerModules.default
     ./zsh/zsh.nix
     ./hypr/hyprland.nix
+    ./waybar
   ];
 
   # Info about user and path it manages
@@ -21,7 +23,6 @@
   home.packages = with pkgs; [
     htop
     httpie
-    # hyprland
   ];
 
 }

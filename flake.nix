@@ -1,34 +1,44 @@
 {
   description = "My humble Nix config!";
   
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+  nixConfig = {
+    # manage flakes 
+    experimental-features = [ "nix-command" "flakes" ];
+  };
 
+  inputs = {
+    # Nixpkgs
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    # Home Manager
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Hyprland window manager 
     hyprland.url = "github:hyprwm/Hyprland";
+    # Community scripts and utilities for Hypr projects
+    hyprland-contrib = {
+      url = "github:hyprwm/contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, hyprland, ... }@inputs: 
   let 
     system = "x86_64-linux";
-
     pkgs = import nixpkgs {
       inherit system;
       config = { allowUnfree = true; };
     };
-
     lib = nixpkgs.lib;
 
   in {
     nixosConfigurations = {
-      nixos = lib.nixosSystem {
+      nixos = nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs system; };
         modules = [
           ./system/configuration.nix 
           hyprland.nixosModules.default
