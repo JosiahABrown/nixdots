@@ -82,17 +82,9 @@
   ];
   
   # Fonts
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     # Nerd fonts
     nerdfonts
     meslo-lgs-nf
   ];
-
-  # nixpkgs.overlays = [
-  #   (self: super: {
-  #     waybar = super.waybar.overrideAttrs (oldAttrs: {
-  #       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-  #       });
-  #     })
-  #  ];  
 }
