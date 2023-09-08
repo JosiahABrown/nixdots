@@ -13,7 +13,12 @@
       source = /home/josiah/.config/hypr/mocha.conf
 
       # Execute your favorite apps at launch
-      exec-once=bash /home/josiah/.config/hypr/start.sh
+      exec-once = swww init
+      exec = sleep 0.5 && swww img /home/josiah/Pictures/Wallpapers/bluehour.jpg
+
+      exec-once = dunst
+      exec-once = nm-applet --indicator
+      exec = pkill waybar & sleep 0.5 && waybar
 
       # Some default env vars.
       env = XCURSOR_SIZE,24
