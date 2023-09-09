@@ -4,9 +4,6 @@
     inputs.hyprland.homeManagerModules.default
     ./scripts
     ./programs
-    ./zsh/zsh.nix
-    ./hypr/hyprland.nix
-    ./waybar
   ];
 
   # Info about user and path it manages
