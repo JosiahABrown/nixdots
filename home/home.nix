@@ -3,6 +3,7 @@
   imports = [
     inputs.hyprland.homeManagerModules.default
     ./scripts
+    ./programs
     ./zsh/zsh.nix
     ./hypr/hyprland.nix
     ./waybar
