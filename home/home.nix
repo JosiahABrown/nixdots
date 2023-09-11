@@ -24,6 +24,7 @@
     htop
     httpie
     cava
+    pro-office-calculator
   ];
 
 }

@@ -13,6 +13,10 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-12.2.3" # for etcher
+  ];
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -54,6 +58,7 @@
     bat
     busybox
     dmidecode
+    etcher
     jq
     killall
     ncdu
@@ -66,6 +71,7 @@
 
     # Programming 
     docker
+    docker-compose
     git
     go
     python311Full
