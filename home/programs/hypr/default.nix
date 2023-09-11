@@ -14,7 +14,7 @@
 
       # Execute your favorite apps at launch
       exec-once = swww init
-      exec = sleep 0.5 && swww img /home/josiah/Pictures/Wallpapers/bluehour.jpg
+      exec = sleep 0.5 && default_wallpaper
 
       exec-once = dunst
       exec-once = nm-applet --indicator

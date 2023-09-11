@@ -45,6 +45,8 @@
           "format" = "<span color='#b4befe'> </span>{:%H:%M}";
           "tooltip" = true;
           "tooltip-format" = "{:%Y-%m-%d %a}";
+          "on-click-middle" = "exec default_wallpaper";
+          "on-click-right" = "exec wallpaper_random";
         };
 
         "cpu" = { "format" = "<span color='#b4befe'> </span>{usage}%"; };
