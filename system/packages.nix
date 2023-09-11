@@ -31,6 +31,7 @@
     signal-desktop
     vimiv-qt
     webcord
+    xfce.thunar
 
     # GUI
     dunst
