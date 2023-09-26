@@ -20,6 +20,7 @@
 
   # User packages
   home.packages = with pkgs; [
+    ansible
     btop
     htop
     httpie
