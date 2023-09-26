@@ -65,6 +65,7 @@
     ncdu
     neofetch
     playerctl
+    polkit
     ripgrep
     scdoc
     stow
@@ -75,6 +76,7 @@
     docker-compose
     git
     go
+    hugo
     python311Full
 
     # misc system

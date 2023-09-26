@@ -25,6 +25,8 @@
     httpie
     cava
     pro-office-calculator
+    man-pages
+    man-pages-posix
   ];
 
 }

@@ -101,6 +101,9 @@
   # Enable Docker
   virtualisation.docker.enable = true;
 
+  # Add additional man pages 
+  documentation.dev.enable = true;
+
   # Automatic Garbage Collection
   nix.gc = {
     automatic = true;
