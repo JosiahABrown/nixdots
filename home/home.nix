@@ -28,6 +28,8 @@
     pro-office-calculator
     man-pages
     man-pages-posix
+    libreoffice
+    semeru-jre-bin-16
   ];
 
 }
