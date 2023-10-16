@@ -11,6 +11,7 @@
       ./networking.nix
       ./packages.nix
       ./base.nix
+      ./laptop.nix
     ];
  
   # This value determines the NixOS release from which the default
