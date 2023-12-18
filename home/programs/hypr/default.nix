@@ -102,7 +102,6 @@
       # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
       windowrule = float, ^(vimiv)$
       windowrule = opacity 0.9 0.7, ^(kitty)$
-      windowrule = opacity 0.95 0.8, ^(obsidian)$
 
       # See https://wiki.hyprland.org/Configuring/Keywords/ for more
       $mainMod = SUPER

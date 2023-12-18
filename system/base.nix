@@ -38,6 +38,17 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
+
+    # Syncthing
+    syncthing = {
+      enable = true;
+      user = "josiah";
+      group = "users";
+      dataDir = "/home/josiah";
+      configDir = "/home/josiah/.config/syncthing";
+      guiAddress = "127.0.0.1:8384";
+      openDefaultPorts = true;
+    };
   };
  
   # Bootloader.

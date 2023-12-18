@@ -20,6 +20,7 @@
 
   # User packages
   home.packages = with pkgs; [
+    anki
     ansible
     btop
     htop
@@ -30,6 +31,7 @@
     man-pages-posix
     libreoffice
     semeru-jre-bin-16
+    syncthing
   ];
 
 }
